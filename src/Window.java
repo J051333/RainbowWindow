@@ -1,35 +1,42 @@
-//imports
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-// how to create a window in java
 public class Window {
 
-    // we want to start off by creating our window field
     public static JFrame frame;
-    // next we want some content for our window
     public static JPanel panel;
     public static JLabel appText;
+    public static JButton rainbowButton;
 
     /**
      * No-args constructor for <code>Window</code> class.
      */
     public Window() {
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
         // initialization
         frame = new JFrame();
         panel = new JPanel(new GridLayout(2, 1));
 
         appText = new JLabel("Press the Button for a Rainbow");
-
-        //panel.setBackground(Color.blue); // we get a blue window
+        rainbowButton = new JButton("Rainbows Await");
+        rainbowButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Rainbow();
+            }
+        });
 
         // panel setup
         panel.add(appText);
+        panel.add(rainbowButton);
 
         // frame setup
         frame.add(panel);
-        frame.setSize(100, 200); // setting the size of the window
+        frame.setSize(300, 200); // setting the size of the window
+        frame.setLocation((int) ((screenSize.getWidth() - frame.getWidth()) / 2), (int) ((screenSize.getHeight() - frame.getHeight()) / 2));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // application will exit on closure of the window
         frame.setVisible(true); // showing the window
 
