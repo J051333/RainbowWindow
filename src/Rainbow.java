@@ -12,25 +12,34 @@ public class Rainbow {
         AtomicBoolean end = new AtomicBoolean(false);
 
         JFrame f = new JFrame("FEEL THE RAINBOW");
+
         f.addWindowListener(new java.awt.event.WindowAdapter() {
+
             public void windowClosing(java.awt.event.WindowEvent e) {
+
                 end.set(true);
                 f.dispose();
+
             }
+
         });
         f.addKeyListener(new KeyListener() {
             public void keyPressed(KeyEvent e) {
+
                 keyPressWait(e.getKeyChar());
+
             }
 
             @Override
             public void keyTyped(KeyEvent e) {
+
                 System.out.println(e);
 
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
+
                 System.out.println(e);
 
             }
@@ -41,7 +50,6 @@ public class Rainbow {
         f.add(panel);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setVisible(true);
-        //f.setLocation(0, 0);
         System.out.println("Test");
 
         Thread t = new Thread(() -> {
@@ -49,6 +57,7 @@ public class Rainbow {
             rainbow(panel, end);
 
         });
+
         t.start();
 
     }
@@ -56,10 +65,14 @@ public class Rainbow {
     public static void keyPressWait(char e) {
 
         if (e == '=' || e == '+') {
+
             wait += 5;
+
         }
         if (e == '-' || e == '_') {
+
             wait -= 5;
+
         }
 
         while (wait < 1) {
@@ -81,10 +94,14 @@ public class Rainbow {
         while (true) {
             //Lock.moveMouse(new Point((int)screenSize.getWidth() / 2, (int)screenSize.getHeight() / 2));
             try {
+
                 Thread.currentThread().sleep(wait);
+
             } catch (Exception e) {
+
                 System.out.println("oops");
                 e.printStackTrace();
+
             }
             if(r > 0 && b == 0){
                 r--;
@@ -98,6 +115,7 @@ public class Rainbow {
                 r++;
                 b--;
             }
+
             p.setBackground(new Color(r, g, b));
 
             if (end.get() == true) {
@@ -107,6 +125,5 @@ public class Rainbow {
 
             }
         }
-
     }
 }
