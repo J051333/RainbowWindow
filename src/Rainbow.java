@@ -95,7 +95,7 @@ public class Rainbow {
             //Lock.moveMouse(new Point((int)screenSize.getWidth() / 2, (int)screenSize.getHeight() / 2));
             try {
 
-                Thread.currentThread().sleep(wait);
+                Thread.sleep(wait);
 
             } catch (Exception e) {
 
@@ -118,7 +118,7 @@ public class Rainbow {
 
             p.setBackground(new Color(r, g, b));
 
-            if (end.get() == true) {
+            if (end.get()) {
 
                 Thread.currentThread().interrupt();
                 break;
