@@ -21,6 +21,7 @@ public class Window {
         panel = new JPanel(new GridLayout(2, 1));
 
         appText = new JLabel("Press the Button for a Rainbow");
+        appText.setHorizontalAlignment(JLabel.CENTER);
         rainbowButton = new JButton("Rainbows Await");
         rainbowButton.addActionListener(new ActionListener() {
             @Override
