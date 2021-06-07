@@ -14,6 +14,12 @@ public class Window {
      */
     public Window() {
 
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // initialization
