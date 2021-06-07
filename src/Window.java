@@ -24,6 +24,8 @@ public class Window {
 
         // initialization
         frame = new JFrame();
+        ImageIcon img = new ImageIcon("C:\\Users\\oboew\\IdeaProjects\\Sample\\src\\rainbow-emoji-by-twitter.png");
+        frame.setIconImage(img.getImage());
         panel = new JPanel(new GridLayout(2, 1));
 
         appText = new JLabel("Press the Button for a Rainbow");

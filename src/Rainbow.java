@@ -12,7 +12,8 @@ public class Rainbow {
         AtomicBoolean end = new AtomicBoolean(false);
 
         JFrame f = new JFrame("FEEL THE RAINBOW");
-
+        ImageIcon img = new ImageIcon("C:\\Users\\oboew\\IdeaProjects\\Sample\\src\\rainbow-emoji-by-twitter.png");
+        f.setIconImage(img.getImage());
         f.addWindowListener(new java.awt.event.WindowAdapter() {
 
             public void windowClosing(java.awt.event.WindowEvent e) {
